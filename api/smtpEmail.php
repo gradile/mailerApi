@@ -12,14 +12,14 @@
     $data = json_decode(file_get_contents("php://input"));
 
     $item->subject = $data->subject;
-    $item->name = $data->name;
-    $item->email = $data->email;
-    $item->query = $data->query;
+    $item->contact_name = $data->contact_name;
+    $item->contact_email = $data->contact_email;
+    $item->contact_question = $data->contact_question;
   
     
     if($item->sendEmailForm()){
-        echo 'Email to Customer created successfully.';
+        echo 'Email created successfully.';
     } else{
-        echo 'Email to Customer could not be created.';
+        echo 'Email could not be created.';
     }
 ?>
