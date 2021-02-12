@@ -1,10 +1,8 @@
 <?php
-    header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
     header("Access-Control-Max-Age: 3600");
-    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-dataed-With");
     include_once './model/formfields.php';
 
     $item = new FormFields();
@@ -16,10 +14,10 @@
     $item->contact_email = $data->contact_email;
     $item->contact_question = $data->contact_question;
   
-    
+   // $item->sendEmailForm();
     if($item->sendEmailForm()){
-        echo 'Email created successfully.';
+        echo  json_encode('Email created successfully.');
     } else{
-        echo 'Email could not be created.';
+        echo json_encode('Email could not be created.');
     }
 ?>
